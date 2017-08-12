@@ -1,0 +1,5 @@
+cricket/model/db-connection.php contains the db details.
+uname: root
+pswd: root
+db name: cricket
+server: localhost
