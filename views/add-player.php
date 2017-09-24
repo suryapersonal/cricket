@@ -32,7 +32,7 @@
                 	<label class='add-label'>Player Type:</label>
                     <select name='player-type' id='player-type' class='enter-data'>
                     	<option value='' selected>Select</option>                   	
-                        <?php
+                        <?php                            
 							$playerTypes = getPlayerTypeOptions();
 							 foreach ($playerTypes as $value) {
 								echo '<option value="'.$value.'">'.$value.'</option>';
@@ -40,6 +40,13 @@
 						?>
                     </select>
                 </div>
+                <!-- <div class='col-sm-6 col-xs-12 add-player-season-column hidden-groups'>
+                    <h2>Season 1</h2>
+                </div>
+                <div class='col-sm-6 col-xs-12 add-player-season-column hidden-groups'>
+                    <h2>Season 2</h2>
+                </div> -->
+
                 <div class='batting-style-sec hidden-groups col-sm-12'>
                 	<div class='form-group'>
                         <label class='add-label'>Batting style:</label>
@@ -49,59 +56,111 @@
                             <option value='Right handed' selected>Right handed</option>
                         </select>
                     </div>
-                    <div class='form-group stat-row'>
-                    	<h4 class='input-title'>Batting stats</h4>
-                        <div class='col-sm-3'>
-                        	<label>Matches</label>
-                            <input type='text' name='match-value' id='match-value' class='enter-data' value='0'>
+                    <div class='col-sm-6 col-xs-12 add-player-season-column'>
+                        <h2>Season 1</h2>
+                        <div class='form-group stat-row'>
+                        	<h4 class='input-title'>Batting stats</h4>
+                            <div class='col-sm-6'>
+                            	<label>Matches</label>
+                                <input type='text' name='match-value-1' id='match-value-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>INNS</label>
+                                <input type='text' name='inns-value-1' id='inns-value-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Not-Out</label>
+                                <input type='text' name='not-out-value-1' id='not-out-value-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Batting Runs</label>
+                                <input type='text' name='batting-runs-value-1' id='batting-runs-value-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Bowls</label>
+                                <input type='text' name='bowls-value-batsman-1' id='bowls-value-batsman-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Strike Rate</label>
+                                <input type='text' name='strike-rate-value-1' id='strike-rate-value-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Bat Average</label>
+                                <input type='text' name='bat-average-value-1' id='bat-average-value-1' class='enter-data' readonly>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>4's</label>
+                                <input type='text' name='fours-value-1' id='fours-value-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>6's</label>
+                                <input type='text' name='sixs-value-1' id='sixs-value-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>50's</label>
+                                <input type='text' name='fiftys-value-1' id='fiftys-value-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Century </label>
+                                <input type='text' name='centuary-value-1' id='centuary-value-1' class='enter-data' value='0'>
+                            </div>
                         </div>
-                        <div class='col-sm-3'>
-                        	<label>INNS</label>
-                            <input type='text' name='inns-value' id='inns-value' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>Not-Out</label>
-                            <input type='text' name='not-out-value' id='not-out-value' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>Batting Runs</label>
-                            <input type='text' name='batting-runs-value' id='batting-runs-value' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>Bowls</label>
-                            <input type='text' name='bowls-value-batsman' id='bowls-value-batsman' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>Strike Rate</label>
-                            <input type='text' name='strike-rate-value' id='strike-rate-value' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>Bat Average</label>
-                            <input type='text' name='bat-average-value' id='bat-average-value' class='enter-data' readonly>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>4's</label>
-                            <input type='text' name='fours-value' id='fours-value' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>6's</label>
-                            <input type='text' name='sixs-value' id='sixs-value' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>50's</label>
-                            <input type='text' name='fiftys-value' id='fiftys-value' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>Century </label>
-                            <input type='text' name='centuary-value' id='centuary-value' class='enter-data' value='0'>
+                    </div>
+                    <div class='col-sm-6 col-xs-12 add-player-season-column'>
+                        <h2>Season 2</h2>
+                        <div class='form-group stat-row'>
+                            <h4 class='input-title'>Batting stats</h4>
+                            <div class='col-sm-6'>
+                                <label>Matches</label>
+                                <input type='text' name='match-value-2' id='match-value-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>INNS</label>
+                                <input type='text' name='inns-value-2' id='inns-value-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Not-Out</label>
+                                <input type='text' name='not-out-value-2' id='not-out-value-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Batting Runs</label>
+                                <input type='text' name='batting-runs-value-2' id='batting-runs-value-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Bowls</label>
+                                <input type='text' name='bowls-value-batsman-2' id='bowls-value-batsman-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Strike Rate</label>
+                                <input type='text' name='strike-rate-value-2' id='strike-rate-value-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Bat Average</label>
+                                <input type='text' name='bat-average-value-2' id='bat-average-value-2' class='enter-data' readonly>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>4's</label>
+                                <input type='text' name='fours-value-2' id='fours-value-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>6's</label>
+                                <input type='text' name='sixs-value-2' id='sixs-value-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>50's</label>
+                                <input type='text' name='fiftys-value-2' id='fiftys-value-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Century </label>
+                                <input type='text' name='centuary-value-2' id='centuary-value-2' class='enter-data' value='0'>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class='bowling-type-sec hidden-groups col-sm-12'>
                 	<div class='form-group'>
                         <label class='add-label'>Bowling Type:</label>
-                        <select name='bowling-type' id='bowling-type' class='enter-data'>                    	
-                            <option value='' selected>Select</option>
+                        <select name='bowling-type-1' id='bowling-type-1' class='enter-data'>                	
                             <option value='Right Arm Fast'>Right Arm Fast</option>
                             <option value='Left Arm Fast'>Left Arm Fast</option>
                             <option value='Right Arm Medium'>Right Arm Medium</option>
@@ -110,95 +169,194 @@
                             <option value='Left Arm Spin'>Left Arm Spin</option>
                         </select>
                     </div>
-                    <div class='form-group stat-row'>
-                        <h4 class='input-title'>Bowling stats</h4>
-                        <div class='col-sm-3'>
-                        	<label>Matches</label>
-                            <input type='text' name='match-value-bowling' id='match-value-bowling' class='enter-data' value='0'>
+                    <div class='col-sm-6 col-xs-12 add-player-season-column'>
+                        <h2>Season 1</h2>
+                        <div class='form-group stat-row'>                            
+                            <h4 class='input-title'>Bowling stats</h4>
+                            <div class='col-sm-6'>
+                            	<label>Matches</label>
+                                <input type='text' name='match-value-bowling-1' id='match-value-bowling-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Overs</label>
+                                <input type='text' name='over-value-1' id='over-value-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Bowling Runs</label>
+                                <input type='text' name='bowling-run-value-1' id='bowling-run-value-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Batting Runs</label>
+                                <input type='text' name='batting-runs-value-bowler-1' id='batting-runs-value-bowler-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Wickets</label>
+                                <input type='text' name='wicket-value-1' id='wicket-value-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Bow/Avl</label>
+                                <input type='text' name='bow-avl-value-1' id='bow-avl-value-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>ECO</label>
+                                <input type='text' name='eco-value-1' id='eco-value-1' class='enter-data' value='0'>
+                            </div>                       
                         </div>
-                        <div class='col-sm-3'>
-                        	<label>Overs</label>
-                            <input type='text' name='over-value' id='over-value' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>Bowling Runs</label>
-                            <input type='text' name='bowling-run-value' id='bowling-run-value' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>Batting Runs</label>
-                            <input type='text' name='batting-runs-value-bowler' id='batting-runs-value-bowler' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>Wickets</label>
-                            <input type='text' name='wicket-value' id='wicket-value' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>Bow/Avl</label>
-                            <input type='text' name='bow-avl-value' id='bow-avl-value' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>ECO</label>
-                            <input type='text' name='eco-value' id='eco-value' class='enter-data' value='0'>
-                        </div>                       
                     </div>
-                </div>
-                <div class='wicket-stat-sec hidden-groups col-sm-12'>                	
-                    <div class='form-group stat-row'>
-                    	<h4 class='input-title'>Wicket Stats</h4>
-                        <div class='col-sm-3'>
-                        	<label>Matches</label>
-                            <input type='text' name='match-value-wicket' id='match-value-wicket' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>INNS</label>
-                            <input type='text' name='inns-value-wicket' id='inns-value-wicket' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>Not-Out</label>
-                            <input type='text' name='not-out-value-wicket' id='not-out-value-wicket' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>Batting Runs</label>
-                            <input type='text' name='batting-runs-value-wicket' id='batting-runs-value-wicket' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>Bowls</label>
-                            <input type='text' name='bowls-value-wicket' id='bowls-value-wicket' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>Strike Rate</label>
-                            <input type='text' name='strike-rate-value-wicket' id='strike-rate-value-wicket' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>Bat Average</label>
-                            <input type='text' name='bat-average-value-wicket' id='bat-average-value-wicket' class='enter-data' value='0' readonly>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>4's</label>
-                            <input type='text' name='fours-value-wicket' id='fours-value-wicket' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>6's</label>
-                            <input type='text' name='sixs-value-wicket' id='sixs-value-wicket' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>50's</label>
-                            <input type='text' name='fiftys-value-wicket' id='fiftys-value-wicket' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>Century </label>
-                            <input type='text' name='centuary-value-wicket' id='centuary-value-wicket' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>Stumping</label>
-                            <input type='text' name='stump-value-wicket' id='stump-value-wicket' class='enter-data' value='0'>
-                        </div>
-                        <div class='col-sm-3'>
-                        	<label>Catches </label>
-                            <input type='text' name='catch-value-wicket' id='catch-value-wicket' class='enter-data' value='0'>
+                    <div class='col-sm-6 col-xs-12 add-player-season-column'>
+                        <h2>Season 2</h2>
+                        <div class='form-group stat-row'>                            
+                            <h4 class='input-title'>Bowling stats</h4>
+                            <div class='col-sm-6'>
+                                <label>Matches</label>
+                                <input type='text' name='match-value-bowling-2' id='match-value-bowling-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Overs</label>
+                                <input type='text' name='over-value-2' id='over-value-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Bowling Runs</label>
+                                <input type='text' name='bowling-run-value-2' id='bowling-run-value-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Batting Runs</label>
+                                <input type='text' name='batting-runs-value-bowler-2' id='batting-runs-value-bowler-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Wickets</label>
+                                <input type='text' name='wicket-value-2' id='wicket-value-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Bow/Avl</label>
+                                <input type='text' name='bow-avl-value-2' id='bow-avl-value-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>ECO</label>
+                                <input type='text' name='eco-value-2' id='eco-value-2' class='enter-data' value='0'>
+                            </div>                       
                         </div>
                     </div>
                 </div>
+                <div class='col-sm-6 col-xs-12 add-player-season-column'>
+                    <div class='wicket-stat-sec hidden-groups col-sm-12'>               	<h2>Season 1</h2>
+                        <div class='form-group stat-row'>
+                        	<h4 class='input-title'>Wicket Stats</h4>
+                            <div class='col-sm-6'>
+                            	<label>Matches</label>
+                                <input type='text' name='match-value-wicket-1' id='match-value-wicket-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>INNS</label>
+                                <input type='text' name='inns-value-wicket-1' id='inns-value-wicket-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Not-Out</label>
+                                <input type='text' name='not-out-value-wicket-1' id='not-out-value-wicket-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Batting Runs</label>
+                                <input type='text' name='batting-runs-value-wicket-1' id='batting-runs-value-wicket-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Bowls</label>
+                                <input type='text' name='bowls-value-wicket-1' id='bowls-value-wicket-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Strike Rate</label>
+                                <input type='text' name='strike-rate-value-wicket-1' id='strike-rate-value-wicket-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Bat Average</label>
+                                <input type='text' name='bat-average-value-wicket-1' id='bat-average-value-wicket-1' class='enter-data' value='0' readonly>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>4's</label>
+                                <input type='text' name='fours-value-wicket-1' id='fours-value-wicket-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>6's</label>
+                                <input type='text' name='sixs-value-wicket-1' id='sixs-value-wicket-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>50's</label>
+                                <input type='text' name='fiftys-value-wicket-1' id='fiftys-value-wicket-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Century </label>
+                                <input type='text' name='centuary-value-wicket-1' id='centuary-value-wicket-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Stumping</label>
+                                <input type='text' name='stump-value-wicket-1' id='stump-value-wicket-1' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                            	<label>Catches </label>
+                                <input type='text' name='catch-value-wicket-1' id='catch-value-wicket-1' class='enter-data' value='0'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-sm-6 col-xs-12 add-player-season-column'>
+                    <div class='wicket-stat-sec hidden-groups col-sm-12'>    
+                    <h2>Season 2</h2>             
+                        <div class='form-group stat-row'>
+                            <h4 class='input-title'>Wicket Stats</h4>
+                            <div class='col-sm-6'>
+                                <label>Matches</label>
+                                <input type='text' name='match-value-wicket-2' id='match-value-wicket-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>INNS</label>
+                                <input type='text' name='inns-value-wicket-2' id='inns-value-wicket-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Not-Out</label>
+                                <input type='text' name='not-out-value-wicket-2' id='not-out-value-wicket-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Batting Runs</label>
+                                <input type='text' name='batting-runs-value-wicket-2' id='batting-runs-value-wicket-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Bowls</label>
+                                <input type='text' name='bowls-value-wicket-2' id='bowls-value-wicket-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Strike Rate</label>
+                                <input type='text' name='strike-rate-value-wicket-2' id='strike-rate-value-wicket-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Bat Average</label>
+                                <input type='text' name='bat-average-value-wicket-2' id='bat-average-value-wicket-2' class='enter-data' value='0' readonly>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>4's</label>
+                                <input type='text' name='fours-value-wicket-2' id='fours-value-wicket-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>6's</label>
+                                <input type='text' name='sixs-value-wicket-2' id='sixs-value-wicket-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>50's</label>
+                                <input type='text' name='fiftys-value-wicket-2' id='fiftys-value-wicket-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Century </label>
+                                <input type='text' name='centuary-value-wicket-2' id='centuary-value-wicket-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Stumping</label>
+                                <input type='text' name='stump-value-wicket-2' id='stump-value-wicket-2' class='enter-data' value='0'>
+                            </div>
+                            <div class='col-sm-6'>
+                                <label>Catches </label>
+                                <input type='text' name='catch-value-wicket-2' id='catch-value-wicket-2' class='enter-data' value='0'>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
                 <div class='form-group col-sm-12'>
                 	<label class='add-label'>Upload Photo:</label>
                 	<input type='file' name='photo-upload' id='photo-upload'>

@@ -38,14 +38,13 @@
             	<div class='mocc-details'>
                 	<h1 class='mocc-head'>Introduction</h1>
                     <p class='mocc-description'>
-                    	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est nulla, imperdiet in arcu vitae,
-                        consectetur elementum mi. Pellentesque vitae arcu ornare, sagittis enim sed, rutrum dolor. Donec 
-                        euismod dui ac auctor sagittis. Pellentesque sit amet porttitor arcu. Pellentesque gravida mauris 
-                        orci, eget ullamcorper eros lacinia vitae. Aenean sollicitudin lacus nec ipsum sagittis, non 
-                        malesuada mauris iaculis. Aenean in eros neque. Quisque vulputate luctus pharetra. Aliquam lobortis, 
-                        mi sed molestie lacinia, lacus ex condimentum urna, id ultrices est nunc nec nisi. Sed tempor 
-                        tincidunt arcu sit amet pharetra. Proin luctus felis lectus, at feugiat quam facilisis in. Nulla 
-                        facilisi.
+                        Cricket originated in England hundreds of years ago but is now played across the world. It’s one of the world’s most popular sports, especially in countries like India, Australia, Pakistan and South Africa. It’s played mainly on a cricket field but it can be played in parks or even on the beach.
+
+                        Some people see cricket as a relaxing hobby, others play it competitively at club, county or international level.
+                        
+                        Cricket is something one can neither associate nor dissociate with, because it is a game of utmost team spirit. Playing cricket on a ship’s deck is one unique experience.
+                        
+                        Gentleman Mariners around Kochi come together to play the gentleman's game. We seek to bring mariners together socially while keeping fit and having fun.
 					</p>
                 </div>
                 <div class='mocc-pic'>

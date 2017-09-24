@@ -6,6 +6,19 @@
                 	<label>Enter player name to view the details:</label>
                     <input type='text' name='search-player-name' id='search-player-name' class='enter-data player-name-ip' placeholder='Player Name' list='player-names'>
                 </div>
+                <div class='form-group'>
+                    <label>Select Season:</label>                    
+                    <select name='search-select-season' id='search-select-season' class='enter-data'>
+                        <option value='All Time'>All Time</option>
+                        <option value='season 1'>Season 1</option>
+                        <option value='season 2'>Season 2</option>
+                        <option value='season 3'>Season 3</option>
+                        <option value='season 4'>Season 4</option>
+                        <option value='season 5'>Season 5</option>
+                        <option value='season 6'>Season 6</option>
+                        <option value='season 6'>Season 7</option>
+                    </select>
+                </div>
                 <div class='btn-wrapper'>
                 	<input type='submit' name='search-player-submit' id='search-player-submit' class='add-data-btn' value='Search'>
                 </div>

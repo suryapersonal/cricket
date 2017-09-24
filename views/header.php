@@ -47,9 +47,12 @@
                     <li>
                     	<a href="<?php echo BASE_URL ?>views/add-player.php" class="nav-item add-player-link <?php echo $privateLinks?>">Add Player</a>
                     </li>
+                    <!-- <li>
+                    	<a href="<?php //echo BASE_URL ?>views/add-player-type.php" class="nav-item add-player-type-link <?php //echo $privateLinks?>">Add Player Type</a>
+                    </li> -->
                     <li>
-                    	<a href="<?php echo BASE_URL ?>views/add-player-type.php" class="nav-item add-player-type-link <?php echo $privateLinks?>">Add Player Type</a>
-                    </li>                  
+                        <a href="<?php echo BASE_URL ?>views/leader-board.php" class="nav-item leader-board-link <?php echo $privateLinks?>">Leader Board</a>
+                    </li>
                     <li class="add-match-li">
                     	<a href="<?php echo BASE_URL ?>views/matches.php" class="nav-item match-link <?php echo $privateLinks?>">Matches</a>
                     	<ul class="sub-menu">

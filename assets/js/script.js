@@ -1,7 +1,11 @@
 // JavaScript Document
 $(document).ready(function(e) {
-  setTime();  
-    $('.add-match-li').hover(
+  setTime();
+  if ($('.leader-board-table-wrapper').length > 0) {
+    leadersBoard ('All Time');
+  }
+  
+  $('.add-match-li').hover(
     function() {
       $(this).find('.sub-menu').addClass('active');
     }, function() {
@@ -21,6 +25,7 @@ $(document).ready(function(e) {
   $('#player-type').on('change', function() {
     var playerType = $(this).val();
     $('#form-add-player').find('.hidden-groups').removeClass('active');
+    //$('.add-player-season-column').removeClass('hidden-groups');
     switch (playerType) {
       case 'Batsman': $('.batting-style-sec').addClass('active');
                       break;
@@ -33,18 +38,32 @@ $(document).ready(function(e) {
     }
   });
   
-  $('#match-value, #batting-runs-value').on('change', function () {
-    var runs = parseInt($('#batting-runs-value').val());
-    var matches = parseInt($('#match-value').val());
+  $('#match-value-1, #batting-runs-value-1').on('change', function () {
+    var runs = parseInt($('#batting-runs-value-1').val());
+    var matches = parseInt($('#match-value-1').val());
     var average = runs / matches;
-    $('#bat-average-value').val(average);
+    $('#bat-average-value-1').val(average);
   });
   
-  $('#match-value-wicket, #batting-runs-value-wicket').on('change', function () {
-    var runs = parseInt($('#batting-runs-value-wicket').val());
-    var matches = parseInt($('#match-value-wicket').val());
+  $('#match-value-wicket-1, #batting-runs-value-wicket-1').on('change', function () {
+    var runs = parseInt($('#batting-runs-value-wicket-1').val());
+    var matches = parseInt($('#match-value-wicket-1').val());
     var average = runs / matches;
-    $('#bat-average-value-wicket').val(average);
+    $('#bat-average-value-wicket-1').val(average);
+  });
+
+  $('#match-value-2, #batting-runs-value-2').on('change', function () {
+    var runs = parseInt($('#batting-runs-value-2').val());
+    var matches = parseInt($('#match-value-2').val());
+    var average = runs / matches;
+    $('#bat-average-value-2').val(average);
+  });
+  
+  $('#match-value-wicket-2, #batting-runs-value-wicket-2').on('change', function () {
+    var runs = parseInt($('#batting-runs-value-wicket-2').val());
+    var matches = parseInt($('#match-value-wicket-2').val());
+    var average = runs / matches;
+    $('#bat-average-value-wicket-2').val(average);
   });
   
   $('#match-time-hh, #match-time-min, #match-time-md').on('change', function() {
@@ -104,18 +123,19 @@ $(document).ready(function(e) {
           }
           $(searchUl).html(optionsAll);
         }
-            });
+      });
     }
   });
   
   $('#search-player-submit').on('click', function (e) {
     e.preventDefault();
     console.log('hi');
-    var playerName = $('#search-player-name').val();
+    var playerName = $('#search-player-name').val(),
+        season = $('#search-select-season').val();
     if(playerName.length > 0) {             
       $.ajax({ 
         url: '../controller/player-details.php',
-        data: {playerName: playerName},
+        data: {playerName: playerName, season: season},
         type: 'post',
         success: function(playerDetails) {
           debugger;
@@ -126,17 +146,20 @@ $(document).ready(function(e) {
               photoUrl = playerDetailsList[0].photoUrl,
               playerType = playerDetailsList[0].playerTypeName,
               matchesTotalCount = playerDetailsList[0].matchesTotalCount,
-              battingDetails = playerDetailsList.battingDetails[0],
+              battingDetails = '',
               moccMatchBattingDetails = playerDetailsList.moccMatchBattings,
-              bowlingDetails = playerDetailsList.bowlingDetails[0],
+              bowlingDetails = '',
               moccBowlingDetails = playerDetailsList.moccMatchBowlings,
-              wicketKeeperDetails = playerDetailsList.wicketKeeperDetails[0],
+              wicketKeeperDetails = '',
               moccWicketKeeperDetails = playerDetailsList.moccMatchWickets,
               moccMatchDatas = playerDetailsList.moccMatchDatas,
               playerMatchtrHtml = '',
               battingStyle, totalIns, totalNotout, battingRuns, balls, strikeRate, batAverage,
               totalFours, totalSixs, totalFiftys, totalCenturies, totalOvers, bowlingRuns,
               bowlerBatRuns, wickets, bowAvl, maiden, totalEco, totalStumping, totalCatches;
+          if (playerDetailsList.battingDetails) battingDetails = playerDetailsList.battingDetails[0];
+          if (playerDetailsList.bowlingDetails) bowlingDetails = playerDetailsList.bowlingDetails[0];
+          if (wicketKeeperDetails = playerDetailsList.wicketKeeperDetails) wicketKeeperDetails = playerDetailsList.wicketKeeperDetails[0];
           tableElement.addClass('active');
           photoUrl = window.location.href.split("views")[0] + 'assets/' + photoUrl.replace(/\\\//g, "/").split("assets")[1];
           console.log('photoUrl:' + photoUrl);
@@ -144,6 +167,17 @@ $(document).ready(function(e) {
           tableElement.find('.player-name').html(name);
           tableElement.find('.player-type-td').html(playerType);
           tableElement.find('.total-match-count').html(matchesTotalCount);
+
+
+          if (!battingDetails && !moccMatchBattingDetails)
+            $('.batting-details').removeClass('active');
+          if (!bowlingDetails && !moccBowlingDetails)
+            $('.bowling-details').removeClass('active');
+          if (!wicketKeeperDetails && !moccWicketKeeperDetails)
+            $('.wicket-keeper-details').removeClass('active');
+
+          if (!moccMatchDatas.length > 0)
+            playerMatchtrHtml = playerMatchtrHtml + '<tr><td colspan="7" style="text-align:center;">No matches available to show</td>';
           for (var i = 0; i < moccMatchDatas.length; i++) {
             var matchNumber = moccMatchDatas[i].matchNumber,
                 playergameType = moccMatchDatas[i].gameType,
@@ -181,15 +215,19 @@ $(document).ready(function(e) {
             }
             if ((battingDetails != 'false' && battingDetails != '' && battingDetails != undefined) && 
             (moccMatchBattingDetails != 'false' && moccMatchBattingDetails != '' && moccMatchBattingDetails != undefined)) {
-              battingRuns = battingRuns + moccMatchBattingDetails.battingRuns;
-              balls = balls + moccMatchBattingDetails.bowls;
-              strikeRate = strikeRate + moccMatchBattingDetails.strikeRate;
-              totalFours = totalFours + moccMatchBattingDetails.fours;
-              totalSixs = totalSixs + moccMatchBattingDetails.sixs;
-              totalFiftys = totalFiftys + moccMatchBattingDetails.fiftys;
-              totalCenturies = totalCenturies + battingDetails.centurys;
+              battingRuns = parseInt(battingRuns) + parseInt(moccMatchBattingDetails.battingRuns);
+              balls = parseInt(balls) + parseInt(moccMatchBattingDetails.bowls);
+              strikeRate = parseInt(strikeRate) + parseInt(moccMatchBattingDetails.strikeRate);
+              totalFours = parseInt(totalFours) + parseInt(moccMatchBattingDetails.fours);
+              totalSixs = parseInt(totalSixs) + parseInt(moccMatchBattingDetails.sixs);
+              totalFiftys = parseInt(totalFiftys) + parseInt(moccMatchBattingDetails.fiftys);
+              totalCenturies = parseInt(totalCenturies) + parseInt(battingDetails.centurys);
             }
             else if (moccMatchBattingDetails != 'false' && moccMatchBattingDetails != '' && moccMatchBattingDetails != undefined) {
+              battingStyle = moccMatchBattingDetails.battingStyle;
+              totalIns = '';
+              totalNotout = '';
+              batAverage = '';
               battingRuns = moccMatchBattingDetails.battingRuns;
               balls = moccMatchBattingDetails.bowls;
               strikeRate = moccMatchBattingDetails.strikeRate;
@@ -221,23 +259,26 @@ $(document).ready(function(e) {
               wickets = bowlingDetails.wickets;
               bowAvl = bowlingDetails.bowAvl;
               totalEco = bowlingDetails.eco;
+              maiden = '';
             }
             if ((bowlingDetails != 'false' && bowlingDetails != '' && bowlingDetails != undefined) && 
             (moccBowlingDetails != 'false' && moccBowlingDetails != '' && moccBowlingDetails != undefined)) {
-              totalOvers = totalOvers + moccBowlingDetails.overs;
-              bowlingRuns = bowlingRuns + moccBowlingDetails.bowling_runs;
-              bowlerBatRuns = bowlerBatRuns + bowlingDetails.battingRuns;
-              wickets = wickets + moccBowlingDetails.wicket;
+              totalOvers = parseInt(totalOvers) + parseInt(moccBowlingDetails.overs);
+              bowlingRuns = parseInt(bowlingRuns) + parseInt(moccBowlingDetails.bowling_runs);
+              bowlerBatRuns = parseInt(bowlerBatRuns) + parseInt(bowlingDetails.battingRuns);
+              wickets = parseInt(wickets) + parseInt(moccBowlingDetails.wicket);
               maiden = moccBowlingDetails.maiden;
-              totalEco = totalEco + moccBowlingDetails.eco;
+              totalEco = parseInt(totalEco) + parseInt(moccBowlingDetails.eco);
             }
             else if (moccBowlingDetails != 'false' && moccBowlingDetails != '' && moccBowlingDetails != undefined) {
               totalOvers = moccBowlingDetails.overs;
               bowlingRuns = moccBowlingDetails.bowling_runs;
-              bowlerBatRuns = moccBowlingDetails.battingRuns;
-              wickets = moccBowlingDetails.wickets;
-              bowAvl = moccBowlingDetails.bowAvl;
+              bowlerBatRuns = '';
+              wickets = moccBowlingDetails.wicket;
+              bowAvl = '';
+              maiden = moccBowlingDetails.maiden;
               totalEco = moccBowlingDetails.eco;
+              tableElement.find('.bowling-type-value').html(moccBowlingDetails.bowlingType);
             }
             $('.bowling-overs').html(totalOvers);
             $('.bowling-runs').html(bowlingRuns);
@@ -267,17 +308,20 @@ $(document).ready(function(e) {
             }
             if ((wicketKeeperDetails != 'false' && wicketKeeperDetails != '' && wicketKeeperDetails != undefined) && 
             (moccWicketKeeperDetails != 'false' && moccWicketKeeperDetails != '' && moccWicketKeeperDetails != undefined)) {
-              battingRuns = battingRuns + moccWicketKeeperDetails.battingRuns;
-              balls = balls + moccWicketKeeperDetails.bowls;
-              strikeRate = strikeRate + moccWicketKeeperDetails.strikeRate;
-              totalFours = totalFours + moccWicketKeeperDetails.fours;
-              totalSixs = totalSixs + moccWicketKeeperDetails.sixs;
-              totalFiftys = totalFiftys + moccWicketKeeperDetails.fiftys;
-              totalCenturies = totalCenturies + moccWicketKeeperDetails.centurys;
-              totalStumping = totalStumping + moccWicketKeeperDetails.stumping;
-              totalCatches = totalCatches + moccWicketKeeperDetails.catches;
+              battingRuns = parseInt(battingRuns) + parseInt(moccWicketKeeperDetails.battingRuns);
+              balls = parseInt(balls) + parseInt(moccWicketKeeperDetails.bowls);
+              strikeRate = parseInt(strikeRate) + parseInt(moccWicketKeeperDetails.strikeRate);
+              totalFours = parseInt(totalFours) + parseInt(moccWicketKeeperDetails.fours);
+              totalSixs = parseInt(totalSixs) + parseInt(moccWicketKeeperDetails.sixs);
+              totalFiftys = parseInt(totalFiftys) + parseInt(moccWicketKeeperDetails.fiftys);
+              totalCenturies = parseInt(totalCenturies) + parseInt(moccWicketKeeperDetails.centurys);
+              totalStumping = parseInt(totalStumping) + parseInt(moccWicketKeeperDetails.stumping);
+              totalCatches = parseInt(totalCatches) + parseInt(moccWicketKeeperDetails.catches);
             }
             else if (moccWicketKeeperDetails != 'false' && moccWicketKeeperDetails != '' && moccWicketKeeperDetails != undefined) {
+              totalIns = '';
+              totalNotout = '';
+              batAverage = '';
               battingRuns = moccWicketKeeperDetails.battingRuns;
               balls = moccWicketKeeperDetails.bowls;
               strikeRate = moccWicketKeeperDetails.strikeRate;
@@ -427,6 +471,57 @@ $(document).ready(function(e) {
     }    
   });
 
+  function leadersBoard (season) {
+    getLeadingBattingRuns (season);
+    getLeadingWickets (season);
+
+    $('#season-lead-batting-runs').on('change', function () {
+      getLeadingBattingRuns ($(this).val());
+    });
+
+    $('#season-lead-wickets').on('change', function () {
+      getLeadingWickets ($(this).val());
+    });
+  }
+
+  function getLeadingBattingRuns (season) {
+    $.ajax({ 
+      url: '../controller/get-leaders-list.php',
+      data: {season: season, leadersListType: 'batting-runs'},
+      type: 'post',
+      success: function(leadersList) {
+        console.log('leadersList: '+leadersList);
+        var leadersList = JSON.parse(leadersList),
+            i = 0,
+            html = '',
+            battingRunTbody = $('.season-lead-batting-tbody');
+        for (i = 0; i < leadersList.length; i++) {
+          html = html + '<tr><td>'+(i+1)+'</td><td>'+leadersList[i].playerName+'</td><td>'+leadersList[i].battingRuns+'</td></tr>';
+        }
+        battingRunTbody.html(html);
+      }
+    });
+  }
+
+  function getLeadingWickets (season) {
+    $.ajax({ 
+      url: '../controller/get-leaders-list.php',
+      data: {season: season, leadersListType: 'wickets'},
+      type: 'post',
+      success: function(leadersList) {
+        console.log('leadersList: '+leadersList);
+        console.log('leadersList: '+leadersList);
+        var leadersList = JSON.parse(leadersList),
+            i = 0,
+            html = '',
+            battingRunTbody = $('.season-lead-wicket-tbody');
+        for (i = 0; i < leadersList.length; i++) {
+          html = html + '<tr><td>'+(i+1)+'</td><td>'+leadersList[i].playerName+'</td><td>'+leadersList[i].wickets+'</td></tr>';
+        }
+        battingRunTbody.html(html);
+      }
+    });
+  }
 
   function setTime() {
     var hours = $('#match-time-hh').val(),

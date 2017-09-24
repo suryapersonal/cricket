@@ -1,6 +1,7 @@
  <?php
  	include_once('../model/queries.php');    
     $playerName = $_REQUEST['playerName'];
-    $playerDetails = getPlayerDetails ($playerName);    
+    $season = $_REQUEST['season'];
+    $playerDetails = getPlayerDetails ($playerName, $season);    
     echo json_encode($playerDetails);
 ?>

@@ -62,70 +62,141 @@
 					switch($playerTypeId) {
 						case '1': 
 							$battingStyle = $_POST['batting-style'];
-							$matchValue = $_POST['match-value'];
-							$innsValue = $_POST['inns-value'];
-							$notOutValue = $_POST['not-out-value'];
-							$battingRuns = $_POST['batting-runs-value'];
-							$bowlsValue = $_POST['bowls-value-batsman'];
-							$strikeRateValue = $_POST['strike-rate-value'];
-							$batAverage = $_POST['bat-average-value'];
-							$foursValue = $_POST['fours-value'];
-							$sixsValue = $_POST['sixs-value'];
-							$fiftysValue = $_POST['fiftys-value'];
-							$centuryValue = $_POST['centuary-value'];
-							$isAdded = addToBatsmanDetails($playerId, $battingStyle, $matchValue, $innsValue, $notOutValue, $battingRuns, $bowlsValue, $strikeRateValue, $batAverage, $foursValue, $sixsValue, $fiftysValue, $centuryValue);
+							$matchValue1 = $_POST['match-value-1'];
+							$innsValue1 = $_POST['inns-value-1'];
+							$notOutValue1 = $_POST['not-out-value-1'];
+							$battingRuns1 = $_POST['batting-runs-value-1'];
+							$bowlsValue1 = $_POST['bowls-value-batsman-1'];
+							$strikeRateValue1 = $_POST['strike-rate-value-1'];
+							$batAverage1 = $_POST['bat-average-value-1'];
+							$foursValue1 = $_POST['fours-value-1'];
+							$sixsValue1 = $_POST['sixs-value-1'];
+							$fiftysValue1 = $_POST['fiftys-value-1'];
+							$centuryValue1 = $_POST['centuary-value-1'];
+							$season = 'season 1';
+							$isAdded = addToBatsmanDetails($playerId, $battingStyle, $matchValue1, $innsValue1, $notOutValue1, $battingRuns1, $bowlsValue1, $strikeRateValue1, $batAverage1, $foursValue1, $sixsValue1, $fiftysValue1, $centuryValue1, $season);
+
+							$matchValue2 = $_POST['match-value-2'];
+							$innsValue2 = $_POST['inns-value-2'];
+							$notOutValue2 = $_POST['not-out-value-2'];
+							$battingRuns2 = $_POST['batting-runs-value-2'];
+							$bowlsValue2 = $_POST['bowls-value-batsman-2'];
+							$strikeRateValue2 = $_POST['strike-rate-value-2'];
+							$batAverage2 = $_POST['bat-average-value-2'];
+							$foursValue2 = $_POST['fours-value-2'];
+							$sixsValue2 = $_POST['sixs-value-2'];
+							$fiftysValue2 = $_POST['fiftys-value-2'];
+							$centuryValue2 = $_POST['centuary-value-2'];
+							$season = 'season 2';
+							$isAdded = addToBatsmanDetails($playerId, $battingStyle, $matchValue2, $innsValue2, $notOutValue2, $battingRuns2, $bowlsValue2, $strikeRateValue2, $batAverage2, $foursValue2, $sixsValue2, $fiftysValue2, $centuryValue2, $season);
 							break;
 						case '2':
-							$bowlingType = $_POST['bowling-type'];
-							$matchValue = $_POST['match-value-bowling'];
-							$overValue = $_POST['over-value'];
-							$bowllingRuns = $_POST['bowling-run-value'];
-							$battingRuns = $_POST['batting-runs-value-bowler'];
-							$wicketValue = $_POST['wicket-value'];
-							$bowAvlValue = $_POST['bow-avl-value'];
-							$ecoValue = $_POST['eco-value'];
-							$isAdded = addToBowlerDetails($playerId, $bowlingType, $matchValue, $overValue, $bowllingRuns, $battingRuns, $wicketValue, $bowAvlValue, $ecoValue);
+							$bowlingType = $_POST['bowling-type-1'];
+							$matchValue1 = $_POST['match-value-bowling-1'];
+							$overValue1 = $_POST['over-value-1'];
+							$bowllingRuns1 = $_POST['bowling-run-value-1'];
+							$battingRuns1 = $_POST['batting-runs-value-bowler-1'];
+							$wicketValue1 = $_POST['wicket-value-1'];
+							$bowAvlValue1 = $_POST['bow-avl-value-1'];
+							$ecoValue1 = $_POST['eco-value-1'];
+							$season = 'season 1';
+							$isAdded = addToBowlerDetails($playerId, $bowlingType, $matchValue1, $overValue1, $bowllingRuns1, $battingRuns1, $wicketValue1, $bowAvlValue1, $ecoValue1, $season);
+
+							$matchValue2 = $_POST['match-value-bowling-2'];
+							$overValue2 = $_POST['over-value-2'];
+							$bowllingRuns2 = $_POST['bowling-run-value-2'];
+							$battingRuns2 = $_POST['batting-runs-value-bowler-2'];
+							$wicketValue2 = $_POST['wicket-value-2'];
+							$bowAvlValue2 = $_POST['bow-avl-value-2'];
+							$ecoValue2 = $_POST['eco-value-2'];
+							$season = 'season 2';
+							$isAdded = addToBowlerDetails($playerId, $bowlingType, $matchValue2, $overValue2, $bowllingRuns2, $battingRuns2, $wicketValue2, $bowAvlValue2, $ecoValue2, $season);
 							break;
 						case '3':
-							$wicketMatchValue = $_POST['match-value-wicket'];
-							$wicketInnsValue = $_POST['inns-value-wicket'];
-							$wicketNotOutValue = $_POST['not-out-value-wicket'];
-							$wicketBattingRuns = $_POST['batting-runs-value-wicket'];
-							$wicketBowls = $_POST['bowls-value-wicket'];
-							$wicketstrikeRate = $_POST['strike-rate-value-wicket'];
-							$wicketBatAvg = $_POST['bat-average-value-wicket'];
-							$wicketFours = $_POST['fours-value-wicket'];
-							$wicketSixs = $_POST['sixs-value-wicket'];
-							$wicketFiftys = $_POST['fiftys-value-wicket'];
-							$wicketCentury = $_POST['centuary-value-wicket'];
-							$wicketStumping = $_POST['stump-value-wicket'];
-							$wicketCatches = $_POST['catch-value-wicket'];
-							$isAdded = addToWicketKeeperDetails($playerId, $wicketMatchValue, $wicketInnsValue, $wicketNotOutValue, $wicketBattingRuns, $wicketBowls, $wicketstrikeRate, $wicketBatAvg, $wicketFours, $wicketSixs, $wicketFiftys, $wicketCentury, $wicketStumping, $wicketCatches);
+							$wicketMatchValue1 = $_POST['match-value-wicket-1'];
+							$wicketInnsValue1 = $_POST['inns-value-wicket-1'];
+							$wicketNotOutValue1 = $_POST['not-out-value-wicket-1'];
+							$wicketBattingRuns1 = $_POST['batting-runs-value-wicket-1'];
+							$wicketBowls1 = $_POST['bowls-value-wicket-1'];
+							$wicketstrikeRate1 = $_POST['strike-rate-value-wicket-1'];
+							$wicketBatAvg1 = $_POST['bat-average-value-wicket-1'];
+							$wicketFours1 = $_POST['fours-value-wicket-1'];
+							$wicketSixs1 = $_POST['sixs-value-wicket-1'];
+							$wicketFiftys1 = $_POST['fiftys-value-wicket-1'];
+							$wicketCentury1 = $_POST['centuary-value-wicket-1'];
+							$wicketStumping1 = $_POST['stump-value-wicket-1'];
+							$wicketCatches1 = $_POST['catch-value-wicket-1'];
+							$season = 'season 1';
+							$isAdded = addToWicketKeeperDetails($playerId, $wicketMatchValue1, $wicketInnsValue1, $wicketNotOutValue1, $wicketBattingRuns1, $wicketBowls1, $wicketstrikeRate1, $wicketBatAvg1, $wicketFours1, $wicketSixs1, $wicketFiftys1, $wicketCentury1, $wicketStumping1, $wicketCatches1, $season);
+
+							$wicketMatchValue2 = $_POST['match-value-wicket-2'];
+							$wicketInnsValue2 = $_POST['inns-value-wicket-2'];
+							$wicketNotOutValue2 = $_POST['not-out-value-wicket-2'];
+							$wicketBattingRuns2 = $_POST['batting-runs-value-wicket-2'];
+							$wicketBowls2 = $_POST['bowls-value-wicket-2'];
+							$wicketstrikeRate2 = $_POST['strike-rate-value-wicket-2'];
+							$wicketBatAvg2 = $_POST['bat-average-value-wicket-2'];
+							$wicketFours2 = $_POST['fours-value-wicket-2'];
+							$wicketSixs2 = $_POST['sixs-value-wicket-2'];
+							$wicketFiftys2 = $_POST['fiftys-value-wicket-2'];
+							$wicketCentury2 = $_POST['centuary-value-wicket-2'];
+							$wicketStumping2 = $_POST['stump-value-wicket-2'];
+							$wicketCatches2 = $_POST['catch-value-wicket-2'];
+							$season = 'season 2';
+							$isAdded = addToWicketKeeperDetails($playerId, $wicketMatchValue2, $wicketInnsValue2, $wicketNotOutValue2, $wicketBattingRuns2, $wicketBowls2, $wicketstrikeRate2, $wicketBatAvg2, $wicketFours2, $wicketSixs2, $wicketFiftys2, $wicketCentury2, $wicketStumping2, $wicketCatches2, $season);
 							echo 4;
 							break;
-						case '4':
+						case '4':							
 							$battingStyle = $_POST['batting-style'];
-							$matchValue = $_POST['match-value'];
-							$innsValue = $_POST['not-out-value'];
-							$notOutValue = $_POST['not-out-value'];
-							$battingRuns = $_POST['batting-runs-value'];
-							$bowlsValue = $_POST['bowls-value'];
-							$strikeRateValue = $_POST['strike-rate-value'];
-							$batAverage = $_POST['bat-average-value'];
-							$foursValue = $_POST['fours-value'];
-							$sixsValue = $_POST['sixs-value'];
-							$fiftysValue = $_POST['fiftys-value'];
-							$centuryValue = $_POST['centuary-value'];
-							$isAdded = addToBatsmanDetails($playerId, $battingStyle, $matchValue, $innsValue, $notOutValue, $battingRuns, $bowlsValue, $strikeRateValue, $batAverage, $foursValue, $sixsValue, $fiftysValue, $centuryValue);
+							$matchValue1 = $_POST['match-value-1'];
+							$innsValue1 = $_POST['inns-value-1'];
+							$notOutValue1 = $_POST['not-out-value-1'];
+							$battingRuns1 = $_POST['batting-runs-value-1'];
+							$bowlsValue1 = $_POST['bowls-value-batsman-1'];
+							$strikeRateValue1 = $_POST['strike-rate-value-1'];
+							$batAverage1 = $_POST['bat-average-value-1'];
+							$foursValue1 = $_POST['fours-value-1'];
+							$sixsValue1 = $_POST['sixs-value-1'];
+							$fiftysValue1 = $_POST['fiftys-value-1'];
+							$centuryValue1 = $_POST['centuary-value-1'];
+							$season = 'season 1';
+							$isAdded = addToBatsmanDetails($playerId, $battingStyle, $matchValue1, $innsValue1, $notOutValue1, $battingRuns1, $bowlsValue1, $strikeRateValue1, $batAverage1, $foursValue1, $sixsValue1, $fiftysValue1, $centuryValue1, $season);
+
+							$matchValue2 = $_POST['match-value-2'];
+							$innsValue2 = $_POST['inns-value-2'];
+							$notOutValue2 = $_POST['not-out-value-2'];
+							$battingRuns2 = $_POST['batting-runs-value-2'];
+							$bowlsValue2 = $_POST['bowls-value-batsman-2'];
+							$strikeRateValue2 = $_POST['strike-rate-value-2'];
+							$batAverage2 = $_POST['bat-average-value-2'];
+							$foursValue2 = $_POST['fours-value-2'];
+							$sixsValue2 = $_POST['sixs-value-2'];
+							$fiftysValue2 = $_POST['fiftys-value-2'];
+							$centuryValue2 = $_POST['centuary-value-2'];
+							$season = 'season 2';
+							$isAdded = addToBatsmanDetails($playerId, $battingStyle, $matchValue2, $innsValue2, $notOutValue2, $battingRuns2, $bowlsValue2, $strikeRateValue2, $batAverage2, $foursValue2, $sixsValue2, $fiftysValue2, $centuryValue2, $season);
+
 							$bowlingType = $_POST['bowling-type'];
-							$matchValue = $_POST['match-value-bowling'];
-							$overValue = $_POST['over-value'];
-							$bowllingRuns = $_POST['bowling-run-value'];
-							$battingRuns = $_POST['batting-runs-value'];
-							$wicketValue = $_POST['wicket-value'];
-							$bowAvlValue = $_POST['bow-avl-value'];
-							$ecoValue = $_POST['eco-value'];
-							$isAdded = addToBowlerDetails($playerId, $bowlingType, $matchValue, $overValue, $bowllingRuns, $battingRuns, $wicketValue, $bowAvlValue, $ecoValue);
+							$matchValue1 = $_POST['match-value-bowling-1'];
+							$overValue1 = $_POST['over-value-1'];
+							$bowllingRuns1 = $_POST['bowling-run-value-1'];
+							$battingRuns1 = $_POST['batting-runs-value-bowler-1'];
+							$wicketValue1 = $_POST['wicket-value-1'];
+							$bowAvlValue1 = $_POST['bow-avl-value-1'];
+							$ecoValue1 = $_POST['eco-value-1'];
+							$season = 'season 1';
+							$isAdded = addToBowlerDetails($playerId, $bowlingType, $matchValue1, $overValue1, $bowllingRuns1, $battingRuns1, $wicketValue1, $bowAvlValue1, $ecoValue1, $season);
+
+							$matchValue2 = $_POST['match-value-bowling-2'];
+							$overValue2 = $_POST['over-value-2'];
+							$bowllingRuns2 = $_POST['bowling-run-value-2'];
+							$battingRuns2 = $_POST['batting-runs-value-bowler-2'];
+							$wicketValue2 = $_POST['wicket-value-2'];
+							$bowAvlValue2 = $_POST['bow-avl-value-2'];
+							$ecoValue2 = $_POST['eco-value-2'];
+							$season = 'season 2';
+							$isAdded = addToBowlerDetails($playerId, $bowlingType, $matchValue2, $overValue2, $bowllingRuns2, $battingRuns2, $wicketValue2, $bowAvlValue2, $ecoValue2, $season);
+
 							break;						
 					}					
 				}
@@ -136,6 +207,7 @@
 	
 	if (isset($_POST['match-submit'])) {
 		$matchNumber = $_POST['match-number'];
+		$season = $_POST['match-season'];
 		$gameType = $_POST['game-type'];
 		$matchDate = $_POST['match-date'];
 		$matchTime = $_POST['match-time'];
@@ -143,11 +215,11 @@
 		$firstTeam = $_POST['match-first-team'];
 		$secondTeam = $_POST['match-second-team'];
 		$winnerTeam = $_POST['match-result'];
-		$isAddMatch = addMatch($matchNumber,$gameType,$matchDate,$matchTime,$matchVenue,$firstTeam,$secondTeam,$winnerTeam);
+		$isAddMatch = addMatch($matchNumber,$gameType,$matchDate,$matchTime,$matchVenue,$firstTeam,$secondTeam,$winnerTeam, $season);
 		if(!$isAddMatch) die('Error in adding match. Please refresh the page and try again later.');
 		$matchId = getCurrentMatchId();
-		$isAddFirstTeamPlayers = addTeamPlayers('first',$matchId,$firstTeam);
-		$isAddSecondTeamPlayers = addTeamPlayers('second',$matchId,$secondTeam);
+		$isAddFirstTeamPlayers = addTeamPlayers('first',$matchId,$firstTeam,$season);
+		$isAddSecondTeamPlayers = addTeamPlayers('second',$matchId,$secondTeam,$season);
 		if($isAddFirstTeamPlayers && $isAddSecondTeamPlayers) $isAdded = true;
 		else $isAdded = false;
 		header('Location: ../views/matches.php?success=' . $isAdded, true);
@@ -205,12 +277,13 @@
 		$destination_path = realpath(__DIR__ . '/..');
 
 		$target_path = $destination_path.'/assets/images/' . basename( $_FILES["photo-upload"]["name"]);		
-
+		echo '$target_path: '.$target_path;
 		if(move_uploaded_file($temp_name, $target_path)) {
 			if(!insertPhoto($target_path)) return false;		 
 		}else{
-			return false;
+			//return false;
 		   exit("Error While uploading image on the server");
+		   return false;
 		}
 	}
 	return true;

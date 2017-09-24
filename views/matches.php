@@ -19,6 +19,16 @@
                     </select>
                 </div>
                 <div class='form-group'>
+                    <label>Season:<span class='required'>*</span></label>
+                    <select name='match-season' id='match-season' class='enter-data'>
+                        <option value='' selected>Select</option>
+                        <option value='season 3'>Season 3</option>
+                        <option value='season 4'>Season 4</option>
+                        <option value='season 5'>Season 5</option>
+                        <option value='season 6'>Season 6</option>
+                    </select>
+                </div>
+                <div class='form-group'>
                 	<label>Game Type:<span class='required'>*</span></label>
                     <select name='game-type' id='game-type' class='enter-data'>
                     	<option value='' selected>Select</option>                   	
